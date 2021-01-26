@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useRouteMatch, Link } from 'react-router-dom'
+import Input from '../Forms/Input'
+import Button from '../Forms/Button'
 
 const LoginForm = () => {
   const { url } = useRouteMatch()
@@ -31,19 +33,21 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action='' onSubmit={handleSubmit}>
-        <input
+        <Input
+          label='Usuário:'
           type='text'
           name='username'
           value={user.username}
           onChange={handleChange}
         />
-        <input
+        <Input
+          label='Senha:'
           type='password'
           name='password'
           value={user.password}
           onChange={handleChange}
         />
-        <button>Enviar</button>
+        <Button>Entrar</Button>
       </form>
       <Link to={`${url}/create`}>Cadastro</Link>
       <Link to={`${url}/recover`}>Recover</Link>
