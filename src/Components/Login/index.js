@@ -1,12 +1,16 @@
-import { Route } from 'react-router-dom'
+import { useContext } from 'react'
 import LoginForm from './LoginForm'
 import LoginCreate from './LoginCreate'
 import LoginPwdRecover from './LoginPwdRecover'
 import LoginPswReset from './LoginPswReset'
-import { useRouteMatch } from 'react-router-dom'
+import { Route, useRouteMatch } from 'react-router-dom'
+import { UserContext } from '../../UserContext'
 
 function Login() {
   const { path } = useRouteMatch()
+  const { login } = useContext(UserContext)
+
+  if (login === true) return null //history.push('/account')
   return (
     <div>
       <Route path={`${path}/`} component={LoginForm} />

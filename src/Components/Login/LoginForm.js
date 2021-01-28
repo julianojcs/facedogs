@@ -1,43 +1,22 @@
-import { useEffect } from 'react'
+import { useContext } from 'react'
 import { useRouteMatch, Link } from 'react-router-dom'
 import Input from '../Forms/Input'
 import Button from '../Forms/Button'
 import useForm from '../../Hooks/useForm'
-import { TOKEN_POST, USER_GET } from '../../api';
+import { UserContext } from '../../UserContext'
 
 const LoginForm = () => {
   const { url } = useRouteMatch()
-  const username = useForm();
-  const password = useForm();
-  console.log(username)
+  const username = useForm()
+  const password = useForm()
 
-  useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    if (token) {
-      getUser(token);
-    }
-  }, []);
-
-  async function getUser(token) {
-    const { url, options } = USER_GET(token);
-    const response = await fetch(url, options);
-    const json = await response.json();
-    console.log(json);
-  }
+  const {  userLogin, error, loading  } = useContext(UserContext)
 
   async function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      });
-
-      const response = await fetch(url, options);
-      const json = await response.json();
-      window.localStorage.setItem('token', json.token);
-      getUser(json.token);
+      userLogin(username.value, password.value)
     }
   }
 
@@ -45,18 +24,14 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action='' onSubmit={handleSubmit}>
-        <Input 
-          label='Usuário:' 
-          type='text' 
-          name='username' 
-          {...username} />
-        <Input
-          label='Senha:'
-          type='password'
-          name='password'
-          {...password}
-        />
-        <Button>Entrar</Button>
+        <Input label='Usuário:' type='text' name='username' {...username} />
+        <Input label='Senha:' type='password' name='password' {...password} />
+        {
+          loading 
+          ? <Button disabled>Carregando...</Button>
+          : <Button>Entrar</Button>
+        }
+        {error && <p>{error}</p>}
       </form>
       <Link to={`${url}/create`}>Cadastro</Link>
       <Link to={`${url}/recover`}>Recover</Link>
