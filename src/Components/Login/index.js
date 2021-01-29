@@ -5,6 +5,7 @@ import LoginPwdRecover from './LoginPwdRecover'
 import LoginPswReset from './LoginPswReset'
 import { Route, useRouteMatch } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
+import styles from './Login.module.css'
 
 function Login() {
   const { path } = useRouteMatch()
@@ -12,12 +13,15 @@ function Login() {
 
   if (login === true) return null //history.push('/account')
   return (
-    <div>
-      <Route path={`${path}/`} component={LoginForm} />
-      <Route path={`${path}/create`} component={LoginCreate} />
-      <Route path={`${path}/recover`} component={LoginPwdRecover} />
-      <Route path={`${path}/reset`} component={LoginPswReset} />
-    </div>
+    <section className={styles.login}>
+      <div className={styles.forms}>
+        <Route path={`${path}/`} component={LoginForm} />
+        <Route path={`${path}/create`} component={LoginCreate} />
+        <Route path={`${path}/recover`} component={LoginPwdRecover} />
+        <Route path={`${path}/reset`} component={LoginPswReset} />
+      </div>
+    </section>
+
   )
 }
 
