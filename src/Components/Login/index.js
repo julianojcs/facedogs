@@ -3,7 +3,7 @@ import LoginForm from './LoginForm'
 import LoginCreate from './LoginCreate'
 import LoginPwdRecover from './LoginPwdRecover'
 import LoginPswReset from './LoginPswReset'
-import { Route, useRouteMatch } from 'react-router-dom'
+import { Route, useRouteMatch, Redirect } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import styles from './Login.module.css'
 
@@ -11,7 +11,7 @@ function Login() {
   const { path } = useRouteMatch()
   const { login } = useContext(UserContext)
 
-  if (login === true) return null //history.push('/account')
+  if (login === true) return <Redirect to='/account' />
   return (
     <section className={styles.login}>
       <div className={styles.forms}>
