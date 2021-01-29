@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api'
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './Api'
 
 export const UserContext = createContext()
 

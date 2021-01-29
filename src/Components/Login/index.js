@@ -15,13 +15,12 @@ function Login() {
   return (
     <section className={styles.login}>
       <div className={styles.forms}>
-        <Route path={`${path}/`} component={LoginForm} />
+        <Route exact path={`${path}/`} component={LoginForm} />
         <Route path={`${path}/create`} component={LoginCreate} />
         <Route path={`${path}/recover`} component={LoginPwdRecover} />
         <Route path={`${path}/reset`} component={LoginPswReset} />
       </div>
     </section>
-
   )
 }
 
