@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import styles from './UserPhotoPost.module.css'
+import stylesInput from '../Forms/Input.module.css'
 import useForm from '../../Hooks/useForm'
 import useFetch from '../../Hooks/useFetch'
 import Input from '../Forms/Input'
 import Button from '../Forms/Button'
+import File from '../Forms/File'
 import Error from '../Helper/Error'
 import { PHOTO_POST } from '../../Api'
 import { useHistory } from 'react-router-dom'
@@ -20,7 +22,7 @@ const UserPhotoPost = () => {
     if (data) history.push('/account')
   }, [data, history])
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault()
     const formData = new FormData()
     formData.append('img', img.raw)
@@ -33,11 +35,13 @@ const UserPhotoPost = () => {
     request(url, options)
   }
 
-  function handleImgChange({ target }) {
-    setImg({
-      preview: URL.createObjectURL(target.files[0]),
-      raw: target.files[0]
-    })
+  const handleImgChange = ({ target }) => {
+    if  (target.files?.length > 0 ) {
+      setImg({
+        preview: URL.createObjectURL(target.files[0]),
+        raw: target.files[0]
+      })
+    }
   }
 
   return (
@@ -46,11 +50,13 @@ const UserPhotoPost = () => {
         <Input label='Nome' type='text' name='nome' {...nome} />
         <Input label='Peso' type='number' name='peso' {...peso} />
         <Input label='Idade' type='number' name='idade' {...idade} />
-        <input
-          className={styles.file}
-          type='file'
+        <File
+          accept='image/*'
           name='img'
           id='img'
+          label='Imagem'
+          placeHolder='Clique e selecione uma imagem'
+          filename={img}
           onChange={handleImgChange}
         />
         {loading ? (

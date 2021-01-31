@@ -5,8 +5,8 @@
   margin-bottom: 2rem;
 }
 
-.file {
-  margin-bottom: 1rem;
+[type='file'] {
+  display: none;
 }
 
 .preview {

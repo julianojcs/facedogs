@@ -1,0 +1,21 @@
+[type='file'] {
+  /* display: none; */
+}
+
+.file {
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.file::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('../../Assets/find.svg') no-repeat center center;
+  margin-left: 0.5rem;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
