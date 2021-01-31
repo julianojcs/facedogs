@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 
 const types = {
   email: {
@@ -17,10 +17,10 @@ const types = {
 }
 
 const useForm = (type) => {
-  const [value, setValue] = React.useState('')
-  const [error, setError] = React.useState(null)
+  const [value, setValue] = useState('')
+  const [error, setError] = useState(null)
 
-  function validate(value) {
+  const validate = (value) => {
     if (type === false) return true
     if (value.length === 0) {
       setError('Preencha um valor.')
@@ -34,7 +34,7 @@ const useForm = (type) => {
     }
   }
 
-  function onChange({ target }) {
+  const onChange = ({ target }) => {
     if (error) validate(target.value)
     setValue(target.value)
   }

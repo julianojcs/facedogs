@@ -5,6 +5,10 @@
 .file {
   padding-right: 2rem;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
 }
 
 .file::after {

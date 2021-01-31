@@ -9,12 +9,14 @@ import File from '../Forms/File'
 import Error from '../Helper/Error'
 import { PHOTO_POST } from '../../Api'
 import { useHistory } from 'react-router-dom'
+import { fileSize } from '../../util'
 
 const UserPhotoPost = () => {
   const nome = useForm()
   const peso = useForm('number')
   const idade = useForm('number')
   const [img, setImg] = useState({})
+  const [value, setValue] = useState('Clique e selecione uma imagem')
   const { data, error, loading, request } = useFetch()
   const history = useHistory()
 
@@ -36,11 +38,12 @@ const UserPhotoPost = () => {
   }
 
   const handleImgChange = ({ target }) => {
-    if  (target.files?.length > 0 ) {
+    if (target.files?.length !== 0) {
       setImg({
         preview: URL.createObjectURL(target.files[0]),
         raw: target.files[0]
       })
+      setValue(`${target.files[0].name} (${fileSize(target.files[0].size)})`)
     }
   }
 
@@ -55,7 +58,7 @@ const UserPhotoPost = () => {
           name='img'
           id='img'
           label='Imagem'
-          placeHolder='Clique e selecione uma imagem'
+          placeHolder={value}
           filename={img}
           onChange={handleImgChange}
         />
