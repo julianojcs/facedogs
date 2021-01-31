@@ -1,0 +1,23 @@
+[[redirects]]
+from = "/portfolio/*"
+to = "https://portfolio.apfjuliano.com.br/:splat"
+status = 200
+force = false
+
+[[redirects]]
+from = "/weather/*"
+to = "https://weather.apfjuliano.com.br/:splat"
+status = 200
+force = false
+
+[[redirects]]
+from = "/facedogs/*"
+to = "https://facedogs.apfjuliano.com.br/:splat"
+status = 200
+force = false
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = false
