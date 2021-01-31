@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import styles from './UserPhotoPost.module.css'
-import stylesInput from '../Forms/Input.module.css'
 import useForm from '../../Hooks/useForm'
 import useFetch from '../../Hooks/useFetch'
 import Input from '../Forms/Input'

@@ -18,13 +18,14 @@ const File = ({
     <div className={stylesInput.wrapper} style={{ position: 'relative' }}>
       <label className={stylesInput.label}>{label}</label>
 
-      <input
-        className={`${stylesInput.input} ${styles.file}`}
-        onClick={handleClick}
-        value={placeHolder}
-        readOnly
-      />
-
+      <span onClick={handleClick}>
+        <input
+          className={`${stylesInput.input} ${styles.file}`}
+          value={placeHolder}
+          readOnly
+        />
+      </span>
+      
       {error && <p className={stylesInput.error}>{error}</p>}
 
       <input

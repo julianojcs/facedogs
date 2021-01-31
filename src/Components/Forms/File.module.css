@@ -1,9 +1,9 @@
-[type='file'] {
-  /* display: none; */
-}
+/* [type='file'] {
+  display: none;
+} */
 
 .file {
-  padding-right: 2rem;
+  padding-right: 2.5rem;
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
@@ -11,7 +11,7 @@
   direction: ltr;
 }
 
-.file::after {
+span::after {
   content: '';
   display: inline-block;
   width: 24px;
