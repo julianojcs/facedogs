@@ -1,6 +1,6 @@
 import UserHeader from './UserHeader'
 import { useRouteMatch, Route, Switch } from 'react-router-dom'
-import Feed from '../Feed/Feed'
+import Feed from '../Feed'
 import UserPhotoPost from './UserPhotoPost'
 import UserStats from './UserStats'
 
