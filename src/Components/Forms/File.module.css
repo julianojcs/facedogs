@@ -10,8 +10,11 @@
   text-overflow: ellipsis;
   direction: ltr;
 }
+span.searchIcon {
+  background: blue;
+}
 
-span::after {
+span.searchIcon::after {
   content: '';
   display: inline-block;
   width: 24px;
