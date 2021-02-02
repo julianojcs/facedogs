@@ -5,6 +5,10 @@
   margin: 1rem;
 }
 
+.single.form {
+  margin: 1rem 0;
+}
+
 .textarea {
   display: block;
   width: 100%;
@@ -16,6 +20,7 @@
   border-radius: 0.2rem;
   background: #eee;
   transition: 0.2s;
+  margin-bottom: 1rem;
 }
 
 .textarea:focus,

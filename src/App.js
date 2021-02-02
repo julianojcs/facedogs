@@ -8,6 +8,7 @@ import Login from './Components/Login'
 import { UserStorage } from './UserContext'
 import User from './Components/User'
 import ProtectedRoute from './Components/Helper/ProtectedRoute'
+import Photo from './Components/Photo/Photo'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/login' component={Login} />
             <ProtectedRoute path='/account' component={User} />
+            <Route path='/photo/:id' component={Photo} />
           </Switch>
           <Footer />
         </UserStorage>

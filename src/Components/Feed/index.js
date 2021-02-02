@@ -35,7 +35,7 @@ const Feed = ({ user }) => {
   }, [infinite])
 
   return (
-    <div>
+    <>
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
@@ -59,7 +59,7 @@ const Feed = ({ user }) => {
           Não existem mais postagens.
         </p>
       )}
-    </div>
+    </>
   )
 }
 
