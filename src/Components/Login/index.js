@@ -6,6 +6,7 @@ import LoginPswReset from './LoginPswReset'
 import { Route, useRouteMatch, Redirect } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import styles from './Login.module.css'
+import PageNotFound from '../404'
 
 function Login() {
   const { path } = useRouteMatch()
@@ -19,6 +20,7 @@ function Login() {
         <Route path={`${path}/create`} component={LoginCreate} />
         <Route path={`${path}/recover`} component={LoginPwdRecover} />
         <Route path={`${path}/reset`} component={LoginPswReset} />
+        <Route path={`${path}/*`} component={PageNotFound} />
       </div>
     </section>
   )

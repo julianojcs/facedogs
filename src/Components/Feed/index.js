@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
+import { useRouteMatch } from 'react-router-dom'
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState(null)
   const [pages, setPages] = useState([1])
-  const [infinite, setInfinite] = useState(true);
+  const [infinite, setInfinite] = useState(true)
+  const { path } = useRouteMatch()
+  console.log(path)
 
   useEffect(( ) => {
     let wait = false
