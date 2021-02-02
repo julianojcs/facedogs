@@ -12,7 +12,6 @@ const PhotoComments = (props) => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight
   }, [comments])
 
-  console.log(props)
   return (
     <>
       <ul

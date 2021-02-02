@@ -1,14 +1,13 @@
+/* eslint-disable react/no-typos */
 import { useState, useEffect } from 'react'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
-import { useRouteMatch } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState(null)
   const [pages, setPages] = useState([1])
   const [infinite, setInfinite] = useState(true)
-  const { path } = useRouteMatch()
-  console.log(path)
 
   useEffect(( ) => {
     let wait = false
@@ -64,6 +63,13 @@ const Feed = ({ user }) => {
       )}
     </>
   )
+}
+
+Feed.defaultProps = {
+  user: 0
+}
+Feed.propTypes = {
+  user: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 }
 
 export default Feed
