@@ -8,7 +8,7 @@ import Login from './Components/Login'
 import { UserStorage } from './UserContext'
 import User from './Components/User'
 import ProtectedRoute from './Components/Helper/ProtectedRoute'
-import Photo from './Components/Photo/Photo'
+import Photo from './Components/Photo'
 import UserProfile from './Components/User/UserProfile'
 import PageNotFound from './Components/404'
 
