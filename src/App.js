@@ -14,18 +14,20 @@ import PageNotFound from './Components/404'
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <BrowserRouter>
         <UserStorage>
           <Header />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/login' component={Login} />
-            <ProtectedRoute path='/account' component={User} />
-            <Route path='/photo/:id' component={Photo} />
-            <Route path='/profile/:user' component={UserProfile} />
-            <Route path='*' component={PageNotFound} />
-          </Switch>
+          <main className='AppBody'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/login' component={Login} />
+              <ProtectedRoute path='/account' component={User} />
+              <Route path='/photo/:id' component={Photo} />
+              <Route path='/profile/:user' component={UserProfile} />
+              <Route path='*' component={PageNotFound} />
+            </Switch>
+          </main>
           <Footer />
         </UserStorage>
       </BrowserRouter>
