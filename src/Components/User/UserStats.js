@@ -1,10 +1,14 @@
-import {useEffect} from 'react'
+import {useEffect, lazy, Suspense } from 'react'
 import Head from '../Helper/Head'
 import useFetch from '../../Hooks/useFetch'
 import { STATS_GET } from '../../Api'
 import Loading from '../Helper/Loading'
 import Error from '../Helper/Error'
-import UserStatsGraphs from './UserStatsGraphs'
+
+//! Only import the Graphic Library when it will be used: 
+//? The React.lazy function provides a built-in way to separate components in an application into separate chunks of JavaScript with very little legwork
+// import UserStatsGraphs from './UserStatsGraphs'
+const UserStatsGraphs = lazy(() => import('./UserStatsGraphs'))
 
 const UserStats = () => {
   const { data, error, loading, request } = useFetch()
@@ -21,10 +25,17 @@ const UserStats = () => {
   if (error) return <Error error={error} />
   if (data)
     return (
-      <div>
+      <>
         <Head title="Estatísticas" />
-        <UserStatsGraphs data={data} />
-      </div>
+        
+        {/* https://web.dev/code-splitting-suspense/
+        <div>
+          <UserStatsGraphs data={data} />
+        </div> */}
+        <Suspense fallback={<></>}>
+          <UserStatsGraphs data={data} />
+        </Suspense>
+      </>
     )
   else return null
 }
