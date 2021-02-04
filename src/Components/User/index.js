@@ -11,7 +11,7 @@ import Head from '../Helper/Head'
 const User = () => {
   const { path } = useRouteMatch()
   const { data } = useContext(UserContext)
-console.log(data)
+
   return (
     <section className='container'>
       <Head title={`@${data.username} (${data.email})`} />
