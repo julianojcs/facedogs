@@ -1,7 +1,7 @@
 ![Juliano Costa](https://raw.githubusercontent.com/julianojcs/julianojcs.github.io/master/apfjuliano.dev.png)
 
 # Facedogs, the dogs social media
-- This app consuming an external REST API.
+- This app consumes an external REST API.
 
 ## Project description:
 
